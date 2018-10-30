@@ -13,5 +13,6 @@ export const btnDanger: string;
 export const sgIcon: string;
 export const sgIconCheckThin: string;
 export const hasRadios: string;
+export const isLive: string;
 export const hasAlert: string;
 export const alert: string;

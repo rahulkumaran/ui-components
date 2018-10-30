@@ -11,6 +11,7 @@ export interface ColorPickerPropsTypes {
     id: string;
     resetValue?: string;
     value: string;
+    textDisabled?: boolean;
     onChange: (event: React.SyntheticEvent<any>, value: string) => void;
 }
 export declare class ColorPicker extends React.Component<ColorPickerPropsTypes & HTMLInputElementProps, {

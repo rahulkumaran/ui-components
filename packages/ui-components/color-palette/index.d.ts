@@ -6,6 +6,7 @@ export interface ColorPaletteProps {
     onMount: (rectangle: any) => void;
     toggleColorPalette: (rectangle: any) => void;
     onChangeComplete?: ColorWrapChangeHandler;
+    textDisabled?: boolean;
     top?: number;
     left?: number;
 }

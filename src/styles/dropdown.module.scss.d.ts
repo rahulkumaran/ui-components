@@ -4,6 +4,7 @@ export const btnWithIcon: string;
 export const hasBadge: string;
 export const isActive: string;
 export const dropdownMenu: string;
+export const isLeft: string;
 export const dropdownMenuAccount: string;
 export const dropdownMenuRightAligned: string;
 export const dropdownLink: string;

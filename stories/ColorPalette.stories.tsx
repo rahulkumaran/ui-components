@@ -22,11 +22,13 @@ class ColorWrapper extends React.Component<any, {value: string}> {
       resetValue=""
       name="color-story"
       id="test-color"
+      {...this.props}
     />);
   }
 }
 
 stories.add('Color Picker', () => <ColorWrapper />);
+stories.add('Text Disabled', () => <ColorWrapper textDisabled/>);
 
 stories.add('Bare', () => (
   <ColorPalette

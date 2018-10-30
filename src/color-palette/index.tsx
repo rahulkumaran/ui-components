@@ -14,6 +14,7 @@ import {
   InjectedColorProps,
 } from 'react-color/lib/components/common/ColorWrap';
 import { createPortal } from 'react-dom';
+import cn from '../utilities/classnames';
 
 import ColorControls from './colorControls';
 import ColorStorage from './colorStorage';
@@ -26,6 +27,7 @@ export interface ColorPaletteProps {
   onMount: (rectangle: any) => void;
   toggleColorPalette: (rectangle: any) => void;
   onChangeComplete?: ColorWrapChangeHandler;
+  textDisabled?: boolean;
   top?: number;
   left?: number;
 }
@@ -53,7 +55,9 @@ class ColorPalette extends React.Component<
     return createPortal(
       <DismissableBackground onClick={toggleColorPalette}>
         <div
-          className={Styles['color-palette']}
+          className={cn(Styles['color-palette'], {
+            [Styles['text-disabled']]: this.props.textDisabled,
+          })}
           style={{ top, left }}
           ref={p => {
             this.palette = p;

@@ -13,6 +13,7 @@ import ColorPalette from './color-palette';
 import { Icon } from './icon';
 import Styles from './styles/color-picker.module.scss';
 import { TextInput } from './text-input';
+import cn from './utilities/classnames';
 export function getPalettePosition(clientHeight, paletteTriggerRect, initialPaletteRect) {
     const triggerSpacing = 5;
     const newTop = clientHeight >= initialPaletteRect.bottom
@@ -66,15 +67,17 @@ export class ColorPicker extends React.Component {
     render() {
         const _a = this.props, { labelText, resetValue, value, onChange } = _a, attributes = __rest(_a, ["labelText", "resetValue", "value", "onChange"]);
         const { displayColorPalette, top, left } = this.state;
-        return (React.createElement("div", { className: Styles['picker-wrapper'] },
+        return (React.createElement("div", { className: cn(Styles['picker-wrapper'], {
+                [Styles['text-disabled']]: this.props.textDisabled,
+            }) },
             React.createElement("label", null, labelText),
             React.createElement("div", { className: Styles['inputs-wrapper'] },
                 (resetValue || typeof resetValue === 'string') && (React.createElement(Icon, { className: Styles['reset-button'], type: "reload", "data-role": "reset-button", title: "Reset to Default Color", onClick: this.onReset })),
-                React.createElement(TextInput, Object.assign({}, attributes, { id: this.props.id, onChange: this.handleChangeFromTextInput, placeholder: "auto", step: this.props.step, type: 'text', value: value, isDisabled: true })),
+                React.createElement(TextInput, Object.assign({}, attributes, { id: this.props.id, onChange: this.handleChangeFromTextInput, placeholder: "auto", step: this.props.step, type: 'text', value: value, isDisabled: !!this.props.textDisabled })),
                 React.createElement("button", { className: Styles.bubble, "data-role": "color-picker-trigger", style: { backgroundColor: value }, onClick: this.toggleColorPalette, ref: element => {
                         this.colorPaletteButton = element;
                     } }),
-                displayColorPalette && (React.createElement(ColorPalette, { toggleColorPalette: this.toggleColorPalette, color: value, onChange: this.handleChangeFromColorPalette, onMount: this.handleColorPaletteMount, top: top, left: left }))),
+                displayColorPalette && (React.createElement(ColorPalette, { toggleColorPalette: this.toggleColorPalette, color: value, onChange: this.handleChangeFromColorPalette, onMount: this.handleColorPaletteMount, textDisabled: this.props.textDisabled, top: top, left: left }))),
             React.createElement("div", { className: "cp-default", role: "color-picker-container" })));
     }
 }

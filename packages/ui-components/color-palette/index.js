@@ -3,6 +3,7 @@ import React from 'react';
 import { CustomPicker, } from 'react-color';
 import { Saturation } from 'react-color/lib/components/common';
 import { createPortal } from 'react-dom';
+import cn from '../utilities/classnames';
 import ColorControls from './colorControls';
 import ColorStorage from './colorStorage';
 import DismissableBackground from './dismissableBackground';
@@ -31,7 +32,9 @@ class ColorPalette extends React.Component {
             rgb: this.props.rgb,
         };
         return createPortal(React.createElement(DismissableBackground, { onClick: toggleColorPalette },
-            React.createElement("div", { className: Styles['color-palette'], style: { top, left }, ref: p => {
+            React.createElement("div", { className: cn(Styles['color-palette'], {
+                    [Styles['text-disabled']]: this.props.textDisabled,
+                }), style: { top, left }, ref: p => {
                     this.palette = p;
                 } },
                 React.createElement("div", { className: Styles.saturation },

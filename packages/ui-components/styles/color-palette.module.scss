@@ -93,6 +93,10 @@ $element-spacing: 6px;
   display: flex;
   flex: 3;
 }
+.text-disabled input {
+  pointer-events: none;
+  user-select: auto;
+}
 
 .controls {
   @include control-padding();

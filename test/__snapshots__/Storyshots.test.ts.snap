@@ -2992,6 +2992,65 @@ exports[`Storyshots Color Palette Color Picker 1`] = `
       title="Reset to Default Color"
     />
     <div
+      className="input-text-wrap"
+      style={Object {}}
+    >
+      <label
+        className="input-text-label"
+        htmlFor="test-color"
+      >
+        
+      </label>
+      <input
+        aria-describedby=""
+        data-role="color-value"
+        id="test-color"
+        name="color-story"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="auto"
+        step={undefined}
+        type="text"
+        value=""
+      />
+      
+      
+    </div>
+    <button
+      className="bubble"
+      data-role="color-picker-trigger"
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    />
+  </div>
+  <div
+    className="cp-default"
+    role="color-picker-container"
+  />
+</div>
+`;
+
+exports[`Storyshots Color Palette Text Disabled 1`] = `
+<div
+  className="picker-wrapper text-disabled"
+>
+  <label />
+  <div
+    className="inputs-wrapper"
+  >
+    <i
+      className="reset-button sg-icon sg-icon-reload"
+      data-role="reset-button"
+      onClick={[Function]}
+      style={null}
+      title="Reset to Default Color"
+    />
+    <div
       className="input-text-wrap is-disabled"
       style={Object {}}
     >
@@ -3011,6 +3070,7 @@ exports[`Storyshots Color Palette Color Picker 1`] = `
         onFocus={[Function]}
         placeholder="auto"
         step={undefined}
+        textDisabled={true}
         type="text"
         value=""
       />

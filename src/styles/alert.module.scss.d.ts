@@ -1,6 +1,7 @@
 export const alert: string;
 export const alertSuccess: string;
 export const btnPrimary: string;
+export const hasUnderline: string;
 export const alertWarning: string;
 export const alertDanger: string;
 export const alertVerification: string;

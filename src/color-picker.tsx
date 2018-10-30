@@ -6,10 +6,10 @@ import classnames from './utilities/classnames';
 import ColorPalette from './color-palette';
 
 import { ColorResult } from 'react-color';
-
 import { Icon } from './icon';
 import Styles from './styles/color-picker.module.scss';
 import { HTMLInputElementProps, TextInput } from './text-input';
+import cn from './utilities/classnames';
 
 export function getPalettePosition(
   clientHeight: number,
@@ -33,6 +33,7 @@ export interface ColorPickerPropsTypes {
   id: string;
   resetValue?: string; // reset color value and show/hide reset anchor
   value: string; // the actual value selected
+  textDisabled?: boolean;
   onChange: (event: React.SyntheticEvent<any>, value: string) => void; // callback for what happens on change
 }
 export class ColorPicker extends React.Component<
@@ -61,7 +62,11 @@ export class ColorPicker extends React.Component<
     } = this.props;
     const { displayColorPalette, top, left } = this.state;
     return (
-      <div className={Styles['picker-wrapper']}>
+      <div
+        className={cn(Styles['picker-wrapper'], {
+          [Styles['text-disabled']]: this.props.textDisabled,
+        })}
+      >
         <label>{labelText}</label>
         <div className={Styles['inputs-wrapper']}>
           {(resetValue || typeof resetValue === 'string') && (
@@ -81,7 +86,7 @@ export class ColorPicker extends React.Component<
             step={this.props.step as number} // weird typing issues with Input types
             type={'text'}
             value={value}
-            isDisabled
+            isDisabled={!!this.props.textDisabled}
           />
           <button
             className={Styles.bubble}
@@ -98,6 +103,7 @@ export class ColorPicker extends React.Component<
               color={value}
               onChange={this.handleChangeFromColorPalette}
               onMount={this.handleColorPaletteMount}
+              textDisabled={this.props.textDisabled}
               top={top}
               left={left}
             />
