@@ -160,4 +160,4 @@ Visit the [Buildkite Master Branch](https://buildkite.com/sendgrid/ui-components
 
 <a name="license"></a>
 # License
-[The MIT License (MIT)](LICENSE.txt)
+[The MIT License (MIT)](LICENSE)
