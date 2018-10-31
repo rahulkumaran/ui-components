@@ -157,3 +157,7 @@ To make sure your additions don't break `ui-components`, run `npm run test`, whi
 ## Deploying
 
 Visit the [Buildkite Master Branch](https://buildkite.com/sendgrid/ui-components/builds?branch=master) and select the SemVer appropriate to your deployment and you should be off and away. Make sure to post in FE Guild that a new version is going out.
+
+<a name="license"></a>
+# License
+[The MIT License (MIT)](LICENSE.txt)
